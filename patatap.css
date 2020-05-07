@@ -1,0 +1,139 @@
+#myCanvas{
+    width: 100%;
+    height: 100%;
+    
+}
+
+body,html{
+    height: 100%;
+    background-color: black;
+    margin: 0px;
+}
+
+/* var sound1=new Howl({src: ['sounds/zig-zag.mp3']});
+
+var sound,color;
+var clickEvent={
+    q:{sound :new Howl({src: [ 'sounds/bubbles.mp3','sounds/bubbles.ogg'] }),
+    color:"orange"},
+
+    w:{sound :new Howl({src: [ 'sounds/clay.mp3','sounds/clay.ogg'] }),
+    color:"teal"},
+
+    e:{sound :new Howl({src: [ 'sounds/bubbles.mp3','sounds/bubbles.ogg'] }),
+    color:"red"},
+
+    r:{sound :new Howl({src: [ 'sounds/confetti.mp3','sounds/confetti.ogg'] }),
+    color:"purple"},
+
+    t:{sound :new Howl({src: [ 'sounds/corona.mp3','sounds/corona.ogg'] }),
+    color:"green"},
+
+    y:{sound :new Howl({src: [ 'sounds/dotted-spiral.mp3','sounds/dotted-spiral.ogg'] }),
+    color:"yellow"},
+
+    u:{sound :new Howl({src: [ 'sounds/flash-1.mp3','sounds/flash-1.ogg'] }),
+    color:"blue"},
+
+    i:{sound :new Howl({src: [ 'sounds/flash-2.mp3','sounds/flash-2.ogg'] }),
+    color:"white"},
+
+    o:{sound :new Howl({src: [ 'sounds/flash-3.mp3','sounds/flash-3.ogg'] }),
+    color:"greenyellow"},
+
+    p:{sound :new Howl({src: [ 'sounds/glimmer.mp3','sounds/glimmer.ogg'] }),
+    color:"darkcyan"},
+
+    a:{sound :new Howl({src: [ 'sounds/moon.mp3','sounds/moon.ogg'] }),
+    color:"firebrick"},
+
+    s:{sound :new Howl({src: [ 'sounds/pinwheel.mp3','sounds/pinwheel.ogg'] }),
+    color:"brown"},
+
+    d:{sound :new Howl({src: [ 'sounds/piston-1.mp3','sounds/piston-1.ogg'] }),
+    color:"pink"},
+
+    f:{sound :new Howl({src: [ 'sounds/piston-2.mp3','sounds/piston-2.ogg'] }),
+    color:"darkblue"},
+
+    g:{sound :new Howl({src: [ 'sounds/piston-3.mp3','sounds/piston-3.ogg'] }),
+    color:"tomato"},
+
+    h:{sound :new Howl({src: [ 'sounds/prism-1.mp3','sounds/prism-1.ogg'] }),
+    color:"tan"},
+
+    j:{sound :new Howl({src: [ 'sounds/prism-2.mp3','sounds/prism-2.ogg'] }),
+    color:"turquoise"},
+
+    k:{sound :new Howl({src: [ 'sounds/prism-3.mp3','sounds/prism-3.ogg'] }),
+    color:"violet"},
+
+    l:{sound :new Howl({src: [ 'sounds/splits.mp3','sounds/splits.ogg'] }),
+    color:"thistle"},
+
+    z:{sound :new Howl({src: [ 'sounds/squiggle.mp3','sounds/squiggle.ogg'] }),
+    color:"orchid"},
+
+    x:{sound :new Howl({src: [ 'sounds/strike.mp3','sounds/strike.ogg'] }),
+    color:"coral"},
+
+    c:{sound :new Howl({src: [ 'sounds/suspension.mp3','sounds/suspension.ogg'] }),
+    color:"crimson"},
+
+    v:{sound :new Howl({src: [ 'sounds/timer.mp3','sounds/timer.ogg'] }),
+    color:"gold"},
+
+    b:{sound :new Howl({src: [ 'sounds/ufo.mp3','sounds/ufo.ogg'] }),
+    color:"skyblue"},
+
+    n:{sound :new Howl({src: [ 'sounds/veil.mp3','sounds/veil.ogg'] }),
+    color: "royalblue";},
+
+    m:{sound :new Howl({src: [ 'sounds/wipe.mp3','sounds/wipe.ogg'] }),
+    color:"sandybrown"},
+}
+
+
+    var circles=[];
+    function onKeyDown(event) {
+        // var maxSize = new Size(view.size.width,view.size.height);
+        // var randomSize = Size.random();
+        // var size = maxSize * randomSize;
+        // it works but point refers to each circle
+
+        //if(event.key==='s') it works
+        //sound.play();
+        //else if (event.key==='a') {
+           // myCircle.fillColor = 'orange';
+            //sound.play();
+        //}
+        
+        if(clickEvent[event.key])
+        {
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var randomPoint = Point.random();
+            var point = maxPoint * randomPoint;
+            var myCircle = new Path.Circle(point, 500);
+            myCircle.fillColor =clickEvent[event.key].color ;
+            clickEvent[event.key].sound.play() ;
+            circles.push(myCircle);
+        }
+        
+        else{
+                var maxPoint = new Point(view.size.width, view.size.height);
+				var randomPoint = Point.random();
+				var point = maxPoint * randomPoint;
+				var myCircle = new Path.Circle(point, 500)
+				myCircle.fillColor = "greenyellow";
+                sound1.play();
+				circles.push(newCircle);
+            }
+    }
+
+    function onFrame(event) {
+        for(var i=0;i<circles.length;i++)
+        {
+            circles[i].fillColor.hue += 1;
+            circles[i].scale(0.9);
+        }
+    } */
