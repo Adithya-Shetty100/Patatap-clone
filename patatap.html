@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="patatap.css">
+
+<!-- Load the Paper.js library -->
+<script type="text/javascript" src="paperjs-v0.12.4\dist\paper-full.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.min.js"></script>
+<!-- Define inlined PaperScript associate it with myCanvas -->
+<script type="text/paperscript" canvas="myCanvas">
+
+	var sound1=new Howl({src: ['sounds/zig-zag.mp3']});
+var sound2=new Howl({src: ['sounds/confetti.mp3']});
+var sound,color;
+var keyData = {
+			q:{sound :new Howl({src: [ 'sounds/bubbles.mp3','sounds/bubbles.ogg'] }),
+			color:"orange"},
+
+			w:{sound :new Howl({src: [ 'sounds/clay.mp3','sounds/clay.ogg'] }),
+			color:"teal"},
+
+			e:{sound :new Howl({src: [ 'sounds/prism-2.mp3','sounds/bubbles.ogg'] }),
+			color:"red"},
+
+			r:{sound :new Howl({src: [ 'sounds/confetti.mp3','sounds/confetti.ogg'] }),
+			color:"purple"},
+
+			t:{sound :new Howl({src: [ 'sounds/corona.mp3','sounds/corona.ogg'] }),
+			color:"green"},
+
+			y:{sound :new Howl({src: [ 'sounds/dotted-spiral.mp3','sounds/dotted-spiral.ogg'] }),
+			color:"yellow"},
+
+			u:{sound :new Howl({src: [ 'sounds/flash-1.mp3','sounds/flash-1.ogg'] }),
+			color:"blue"},
+
+			i:{sound :new Howl({src: [ 'sounds/flash-2.mp3','sounds/flash-2.ogg'] }),
+			color:"white"},
+
+			o:{sound :new Howl({src: [ 'sounds/flash-3.mp3','sounds/flash-3.ogg'] }),
+			color:"greenyellow"},
+
+			p:{sound :new Howl({src: [ 'sounds/glimmer.mp3','sounds/glimmer.ogg'] }),
+			color:"darkcyan"},
+
+			a:{sound :new Howl({src: [ 'sounds/moon.mp3','sounds/moon.ogg'] }),
+			color:"firebrick"},
+
+			s:{sound :new Howl({src: [ 'sounds/pinwheel.mp3','sounds/pinwheel.ogg'] }),
+			color:"brown"},
+
+			d:{sound :new Howl({src: [ 'sounds/piston-1.mp3','sounds/piston-1.ogg'] }),
+			color:"pink"},
+
+			f:{sound :new Howl({src: [ 'sounds/piston-2.mp3','sounds/piston-2.ogg'] }),
+			color:"darkblue"},
+
+			g:{sound :new Howl({src: [ 'sounds/piston-3.mp3','sounds/piston-3.ogg'] }),
+			color:"tomato"},
+
+			h:{sound :new Howl({src: [ 'sounds/prism-1.mp3','sounds/prism-1.ogg'] }),
+			color:"tan"},
+
+			j:{sound :new Howl({src: [ 'sounds/prism-2.mp3','sounds/prism-2.ogg'] }),
+			color:"turquoise"},
+
+			k:{sound :new Howl({src: [ 'sounds/prism-3.mp3','sounds/prism-3.ogg'] }),
+			color:"violet"},
+
+			l:{sound :new Howl({src: [ 'sounds/splits.mp3','sounds/splits.ogg'] }),
+			color:"thistle"},
+
+			z:{sound :new Howl({src: [ 'sounds/squiggle.mp3','sounds/squiggle.ogg'] }),
+			color:"orchid"},
+
+			x:{sound :new Howl({src: [ 'sounds/strike.mp3','sounds/strike.ogg'] }),
+			color:"coral"},
+
+			c:{sound :new Howl({src: [ 'sounds/suspension.mp3','sounds/suspension.ogg'] }),
+			color:"crimson"},
+
+			v:{sound :new Howl({src: [ 'sounds/timer.mp3','sounds/timer.ogg'] }),
+			color:"gold"},
+
+			b:{sound :new Howl({src: [ 'sounds/ufo.mp3','sounds/ufo.ogg'] }),
+			color:"skyblue"},
+
+			n:{sound :new Howl({src: [ 'sounds/veil.mp3','sounds/veil.ogg'] }),
+			color: "royalblue"},
+
+			m:{sound :new Howl({src: [ 'sounds/wipe.mp3','sounds/wipe.ogg'] }),
+			color:"sandybrown"},
+
+            1:{sound :new Howl({src: [ 'sounds/bubbles.mp3','sounds/bubbles.ogg'] }),
+				 color:"orange"},
+				 
+            2:{sound :new Howl({src: [ 'sounds/glimmer.mp3','sounds/glimmer.ogg'] }),
+				 color:"darkcyan"},
+				 
+            3:{sound :new Howl({src: [ 'sounds/moon.mp3','sounds/moon.ogg'] }),
+				color:"firebrick"},
+				
+            4:{sound :new Howl({src: [ 'sounds/flash-2.mp3','sounds/flash-2.ogg'] }),
+					color:"white"},
+					
+            5:{sound :new Howl({src: [ 'sounds/confetti.mp3','sounds/confetti.ogg'] }),
+					 color:"purple"},
+					 
+            6:{sound :new Howl({src: [ 'sounds/clay.mp3','sounds/clay.ogg'] }),
+					color:"teal"},
+					
+            7:{sound :new Howl({src: [ 'sounds/flash-2.mp3','sounds/flash-2.ogg'] }),
+					color:"white"},
+					
+            8:{sound :new Howl({src: [ 'sounds/piston-3.mp3','sounds/piston-3.ogg'] }),
+					 color:"tomato"},
+					 
+            9:{sound :new Howl({src: [ 'sounds/piston-3.mp3','sounds/piston-3.ogg'] }),
+					 color:"tomato"},
+					 
+            0:{sound :new Howl({src: [ 'sounds/strike.mp3','sounds/strike.ogg'] }),
+                    color:"coral"},         
+		}
+
+		var circles = [];
+
+		function onKeyDown(event) {
+
+            // var maxSize = new Size(view.size.width,view.size.height);
+            // var randomSize = Size.random();
+            // var size = maxSize * randomSize;
+            // it works but point refers to each circle
+
+            //if(event.key==='s') it works
+            //sound.play();
+            //else if (event.key==='a') {
+            // myCircle.fillColor = 'orange';
+                //sound.play();
+            //}
+        
+			if(keyData[event.key]){
+				var maxPoint = new Point(view.size.width, view.size.height);
+				var randomPoint = Point.random();
+				var point = maxPoint * randomPoint;
+				var newCircle = new Path.Circle(point, 500)
+				newCircle.fillColor = keyData[event.key].color;
+				keyData[event.key].sound.play();
+				circles.push(newCircle);
+			}
+
+            else{
+                var maxPoint = new Point(view.size.width, view.size.height);
+				var randomPoint = Point.random();
+				var point = maxPoint * randomPoint;
+				var myCircle = new Path.Circle(point, 500)
+				myCircle.fillColor = "greenyellow";
+                sound1.play();
+				circles.push(myCircle);
+            }
+            
+        }
+        
+        function onMouseDown(event) {
+            var maxPoint = new Point(view.size.width, view.size.height);
+				var randomPoint = Point.random();
+				var point = maxPoint * randomPoint;
+				var myCircle = new Path.Circle(point, 500)
+				myCircle.fillColor = "purple";
+                sound2.play();
+				circles.push(myCircle);
+        }
+
+		function onFrame(event){
+			for(var i = 0; i < circles.length; i++){
+				circles[i].fillColor.hue += 1;
+                circles[i].scale(0.9);
+                if(circles[i].area < 10){ //removes the small dot after scalling
+					circles[i].remove(); // remove the circle from the canvas
+					circles.splice(i, 1); // remove one circle after the index  from the array
+    			}
+			}
+		}
+	 
+</script>
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
